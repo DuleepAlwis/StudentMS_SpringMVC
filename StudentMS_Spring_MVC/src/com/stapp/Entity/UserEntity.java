@@ -8,6 +8,8 @@ public class UserEntity {
 	private String email;
 	private String contactNum;
 	private String resetCode;
+	private long orgId;
+	private String role;
 	private boolean enable;
 	
 	public UserEntity() {
@@ -16,7 +18,7 @@ public class UserEntity {
 	}
 
 	public UserEntity(long id, String name, String password, String email, String contactNum, String resetCode,
-			boolean enable) {
+			long orgId, String role, boolean enable) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -24,6 +26,8 @@ public class UserEntity {
 		this.email = email;
 		this.contactNum = contactNum;
 		this.resetCode = resetCode;
+		this.orgId = orgId;
+		this.role = role;
 		this.enable = enable;
 	}
 
@@ -75,6 +79,22 @@ public class UserEntity {
 		this.resetCode = resetCode;
 	}
 
+	public long getOrgId() {
+		return orgId;
+	}
+
+	public void setOrgId(long orgId) {
+		this.orgId = orgId;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public boolean isEnable() {
 		return enable;
 	}
@@ -86,7 +106,10 @@ public class UserEntity {
 	@Override
 	public String toString() {
 		return "UserEntity [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email
-				+ ", contactNum=" + contactNum + ", resetCode=" + resetCode + ", enable=" + enable + "]";
+				+ ", contactNum=" + contactNum + ", resetCode=" + resetCode + ", orgId=" + orgId + ", role=" + role
+				+ ", enable=" + enable + "]";
 	}
+	
+	
 	
 }

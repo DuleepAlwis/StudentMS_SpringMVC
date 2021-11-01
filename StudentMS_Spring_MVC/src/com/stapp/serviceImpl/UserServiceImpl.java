@@ -15,4 +15,8 @@ public class UserServiceImpl {
 	public Long saveUser(UserEntity user) {
 		return userDao.save(user);
 	}
+	
+	public UserEntity loginUser(String email,String password) {
+		return userDao.login(email, password);
+	}
 }

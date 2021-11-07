@@ -40,7 +40,7 @@ public class UserController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		if(ue.getRole().equals("ADMIN")) {
+		if(ue!=null && ue.getRole().equalsIgnoreCase("ADMIN")) {
 			mv.setViewName("AdminMain"); 
 			mv.addObject("user",ue);
 		}

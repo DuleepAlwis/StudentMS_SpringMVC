@@ -11,7 +11,7 @@ public class Datasource {
 	public Datasource() {
 		this.datasource = new DriverManagerDataSource();
 		datasource.setDriverClassName("com.mysql.jdbc.Driver");
-		datasource.setUrl("jdbc:mysql://localhost:3306/studentms_mvc_db");
+		datasource.setUrl("jdbc:mysql://localhost:3306/studentms_mvc_db?useSSL=false");
 		datasource.setUsername("root");
 		datasource.setPassword("password");
 	}

@@ -70,7 +70,7 @@ public class UserDAOImpl implements UserDAO<Long, UserEntity> {
 	
 	public UserEntity login(String email,String password) {
 		System.out.println(email+" "+password);
-		String sql = "Select id,name,password,contact_number,email from user where email=? and password=?";
+		String sql = "Select id,name,password,contact_number,email,orgid,role from user where email=? and password=?";
 		return JdbcTemplate.query(new PreparedStatementCreator() {
 			
 			@Override
@@ -87,11 +87,14 @@ public class UserDAOImpl implements UserDAO<Long, UserEntity> {
 			public UserEntity extractData(ResultSet rs) throws SQLException, DataAccessException {
 				// TODO Auto-generated method stub
 				UserEntity ue = new UserEntity();
+				if(rs.next()) {
 				ue.setId(rs.getLong("id"));
 				ue.setName(rs.getString("name"));
 				ue.setContactNum(rs.getNString("contact_number"));
 				ue.setEmail(rs.getString("email"));
 				ue.setOrgId(rs.getLong("orgid"));
+				ue.setRole(rs.getString("role"));
+				}
 				return ue;
 			}
 			

@@ -27,6 +27,10 @@ public class UserController {
 //		return "HelloWorld";
 //	}
 //	
+	public UserController() {
+		//System.out.println("User controller");
+	}
+	
 	@RequestMapping(value="/loginUser",method=RequestMethod.POST)
 	public ModelAndView userLogin(HttpServletRequest request,HttpServletResponse response) {
 		String email = request.getParameter("email");

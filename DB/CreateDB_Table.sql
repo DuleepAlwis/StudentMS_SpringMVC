@@ -101,3 +101,15 @@ CONSTRAINT FK_classr_cst FOREIGN KEY (classrid) REFERENCES classroom(id),
  CONSTRAINT FK_subject_ts FOREIGN KEY(subjectid) REFERENCES Subject(id),
  CONSTRAINT FK_classroom_ts FOREIGN KEY(classroom) REFERENCES classroom(id)
  );
+ 
+ CREATE TABLE IF NOT EXISTS org(
+ 
+ id INT,
+ NAME VARCHAR(255),
+ location VARCHAR(255),
+ PRIMARY KEY(id)
+ )
+ 
+ ALTER TABLE user ADD orgid INT
+ ALTER TABLE user ADD CONSTRAINT FK_org_user FOREIGN KEY(orgid) REFERENCES org(id);
+ ALTER TABLE user ADD role CHAR(17);

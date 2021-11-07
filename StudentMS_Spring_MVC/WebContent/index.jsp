@@ -31,8 +31,8 @@
 		    </span>
 		  </div>
 		  <div class="mb-3 row">
-			<span class="col-md-4"><input type="submit" value="Login"/></span>
-			<span class="col-md-4"><input type="reset" value="Cancel"/></span>
+			<span class="col-md-4"><input type="submit" value="Login"/>
+			<input type="reset" value="Cancel"/></span>
 			
 		  </div>
 	</form>

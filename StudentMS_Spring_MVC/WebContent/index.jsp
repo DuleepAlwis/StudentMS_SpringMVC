@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Student Management System</title>
+<title>BlackBoard Student Management System</title>
  <!--  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css"/>-->
 <link href='<c:url value="/resources/css/common.css"/>' rel="stylesheet">
 <link href='<c:url value="/resources/css/bootstrap.min.css"/>' rel="stylesheet">

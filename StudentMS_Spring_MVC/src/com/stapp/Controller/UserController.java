@@ -40,9 +40,15 @@ public class UserController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		if(ue!=null && ue.getRole().equalsIgnoreCase("ADMIN")) {
-			mv.setViewName("AdminMain"); 
-			mv.addObject("user",ue);
+		if(ue!=null && ue.getId()>0){
+			if(ue.getRole().equalsIgnoreCase("ADMIN")) {
+				mv.setViewName("AdminMain"); 
+				mv.addObject("user",ue);
+			}
+		}else {
+			mv.setViewName("error");
+			mv.addObject("message","User not found");
+			System.out.println("User not found");
 		}
 		return mv;
 	}

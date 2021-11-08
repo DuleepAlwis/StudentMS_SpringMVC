@@ -11,7 +11,7 @@
 <link href='<c:url value="/resources/css/common.css"/>' rel="stylesheet">
 <link href='<c:url value="/resources/css/bootstrap.min.css"/>' rel="stylesheet">
 </head>
-<body>
+<body style="background-color:antiquewhite;background-position: 0cm;">
 <div class="outer-box">
 <div class="inner-box">
 	<span class="box-heading">Login</span>
@@ -31,6 +31,7 @@
 		    </span>
 		  </div>
 		  <div class="mb-3 row">
+			  <span class="col-md-4"></span>
 			<span class="col-md-4"><input type="submit" value="Login"/>
 			<input type="reset" value="Cancel"/></span>
 			

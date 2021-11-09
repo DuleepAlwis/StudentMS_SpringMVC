@@ -110,6 +110,6 @@ CONSTRAINT FK_classr_cst FOREIGN KEY (classrid) REFERENCES classroom(id),
  PRIMARY KEY(id)
  )
  
- ALTER TABLE user ADD orgid INT
- ALTER TABLE user ADD CONSTRAINT FK_org_user FOREIGN KEY(orgid) REFERENCES org(id);
- ALTER TABLE user ADD role CHAR(17);
+ ALTER TABLE user ADD `orgid` INT;
+ ALTER TABLE user ADD CONSTRAINT FK_org_user FOREIGN KEY(`orgid`) REFERENCES org(`id`);
+ ALTER TABLE user ADD role CHAR(17);studentms_mvc_db

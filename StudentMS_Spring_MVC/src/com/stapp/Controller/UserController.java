@@ -1,9 +1,13 @@
 
 package com.stapp.Controller;
 
+import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +31,15 @@ public class UserController {
 //		return "HelloWorld";
 //	}
 //	
+	
+   
+
 	public UserController() {
 		//System.out.println("User controller");
 	}
 	
 	@RequestMapping(value="/loginUser",method=RequestMethod.POST)
-	public ModelAndView userLogin(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView userLogin(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		UserServiceImpl userService = new UserServiceImpl();
@@ -43,7 +50,8 @@ public class UserController {
 		if(ue!=null && ue.getId()>0){
 			if(ue.getRole().equalsIgnoreCase("ADMIN")) {
 				mv.setViewName("AdminMain"); 
-				mv.addObject("user",ue);
+				session.setAttribute("user", ue);
+				
 			}
 		}else {
 			mv.setViewName("error");

@@ -8,10 +8,12 @@
 <meta charset="ISO-8859-1">
 <title>BlackBoard Student Management System</title>
  <!--  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css"/>-->
-<link href='<c:url value="/resources/css/common.css"/>' rel="stylesheet">
+ <link href='<c:url value="/resources/css/common.css"/>' rel="stylesheet"> 
 <link href='<c:url value="/resources/css/bootstrap.min.css"/>' rel="stylesheet">
 </head>
-<body style="background-color:antiquewhite;background-position: 0cm;">
+<body>
+	
+<img src='<c:url value="/resources/images/classroom_bg_2.jpg"/>' width="100%" height="100%"/>
 <div class="outer-box">
 <div class="inner-box">
 	<span class="box-heading">Login</span>

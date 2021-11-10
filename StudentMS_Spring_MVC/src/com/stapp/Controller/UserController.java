@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stapp.Entity.UserEntity;
@@ -38,6 +39,15 @@ public class UserController {
 		//System.out.println("User controller");
 	}
 	
+	@RequestMapping(value="/",method=RequestMethod.GET)
+	public ModelAndView getRootPage(HttpServletRequest req,HttpServletResponse res) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("index");
+		
+		return mv;
+	}
+	
 	@RequestMapping(value="/loginUser",method=RequestMethod.POST)
 	public ModelAndView userLogin(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String email = request.getParameter("email");
@@ -59,5 +69,23 @@ public class UserController {
 			System.out.println("User not found");
 		}
 		return mv;
+	}
+	
+	@RequestMapping(value="/password_forgot", method=RequestMethod.GET)
+	public ModelAndView passwordForgot(HttpServletRequest req,HttpServletResponse res) {
+		
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("passwordReset");
+		return mv;
+	}
+	
+	@RequestMapping(value="/send_code",method=RequestMethod.GET)
+	public @ResponseBody String resetPassword(HttpServletRequest req,HttpServletResponse res) {
+		
+		String email = req.getParameter("email");
+	
+		return "Done";
 	}
 }

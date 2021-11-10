@@ -39,6 +39,7 @@
 			
 		  </div>
 	</form>
+	<a href="password_forgot">Forgot password?</a>
 </div>
 </div>
 </body>

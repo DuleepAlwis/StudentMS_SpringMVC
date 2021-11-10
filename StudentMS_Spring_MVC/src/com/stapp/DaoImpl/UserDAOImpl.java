@@ -7,6 +7,7 @@ import com.stapp.Entity.UserEntity;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 import javax.swing.tree.RowMapper;
@@ -28,7 +29,6 @@ public class UserDAOImpl implements UserDAO<Long, UserEntity> {
 	
 	public UserDAOImpl() {
 		
-		datasource = new Datasource();
 		this.JdbcTemplate = new JdbcTemplate(con);
 	}
 	@Override
@@ -68,6 +68,39 @@ public class UserDAOImpl implements UserDAO<Long, UserEntity> {
 		return null;
 	}
 	
+	public UserEntity searchByEmail(String email) {
+		
+		String sql = "select id from user where email=?";
+		
+		return JdbcTemplate.query(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				
+				PreparedStatement psc = (PreparedStatement)con.prepareStatement(sql.toString());
+				psc.setString(1,email);
+				return psc;
+			}
+			
+		}, new ResultSetExtractor<UserEntity>() {
+
+			@Override
+			public UserEntity extractData(ResultSet rs) throws SQLException, DataAccessException {
+				// TODO Auto-generated method stub
+				UserEntity ue = new UserEntity();
+				if(rs.next()) {
+					ue.setId(rs.getLong("id"));
+				}
+				return ue;
+			}
+		});
+	}
+	
+	public String sendOTP(String email) {
+		
+		String 
+	}
+	
 	public UserEntity login(String email,String password) {
 		System.out.println(email+" "+password);
 		String sql = "Select id,name,password,contact_number,email,orgid,role from user where email=? and password=?";
@@ -103,6 +136,12 @@ public class UserDAOImpl implements UserDAO<Long, UserEntity> {
 
 	@Override
 	public Long deleteUser(UserEntity user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<UserEntity> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
